@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Security Patches - 007RTB</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="wrap">
+
+  <div id="header">
+    <a class="logo" href="index.html"><img src="Banner.png" alt="007RTB"></a>
+    <a class="btn-yellow btn-top" href="https://discord.gg/HtrnZm9SAr">Join Discord &gt;</a>
+  </div>
+  <div id="nav">
+    <a href="index.html">Home</a><span class="sep"> | </span>
+    <a href="maps.html">Maps Archive</a><span class="sep"> | </span>
+    <a href="https://github.com/theobrdev/rbx_modern_to_2007">Converter (GitHub)</a><span class="sep"> | </span>
+    <a href="security.html">Security Patches</a><span class="sep"> | </span>
+    <a href="https://discord.gg/HtrnZm9SAr">Discord</a>
+  </div>
+
+  <div id="main">
+    <div id="left">
+      <div class="box-gray">
+        <h4>Project Status</h4>
+        <div class="inner">
+          <dl style="margin:0">
+            <dt>Client</dt><dd>0.3.368.0</dd>
+            <dt>Network</dt><dd>Radmin VPN</dd>
+            <dt>Maps Converted</dt><dd>20</dd>
+          </dl>
+          <a class="btn-small" href="https://discord.gg/HtrnZm9SAr">Apply for @Tester</a>
+        </div>
+      </div>
+    </div>
+
+    <div id="center">
+      <div class="panel plain">
+        <h1>Security Patches</h1>
+        <h2>How 007RTB keeps a 2007 client safe to play today</h2>
+
+        <div class="sec-nav">Jump to:
+          <a href="#why">1. Why it needed fixing</a> |
+          <a href="#patches">2. The 4 patches</a> |
+          <a href="#maps">3. Map review</a> |
+          <a href="#network">4. Closed network</a>
+        </div>
+
+        <h3 class="sec" id="why">1. Why the original client needed fixing</h3>
+        <p class="sec-text">
+          The original March 2007 build (<code>0.3.368.0</code>) was made long before modern security protections existed.
+          If someone runs the original, unmodified executable today, a malicious map can run commands directly on the player's Windows system
+          (a class of flaws known as Remote Code Execution, or RCE).
+        </p>
+
+        <h3 class="sec" id="patches">2. The 4 critical flaws removed from the executable</h3>
+
+        <div class="patch">
+          <div class="brick">1</div>
+          <div>
+            <h4>Malicious bytecode blocked in <code>loadstring</code></h4>
+            <p>
+              The original Lua 5.1 allowed pre-compiled bytecode to be loaded inside scripts, which could be used to escape the game's restrictions and attack the PC.
+              The <code>luaU_undump</code> function was patched in Assembly so the client rejects any bytecode and accepts only plain Lua text.
+            </p>
+          </div>
+        </div>
+
+        <div class="patch">
+          <div class="brick">2</div>
+          <div>
+            <h4>Local file execution removed (<code>dofile</code> and <code>loadfile</code>)</h4>
+            <p>
+              These functions let a map script read or run files hidden on the player's computer.
+              They were neutralized directly in the binary.
+            </p>
+          </div>
+        </div>
+
+        <div class="patch">
+          <div class="brick">3</div>
+          <div>
+            <h4>Garbage-collector escape blocked (<code>__gc</code>)</h4>
+            <p>
+              A classic hole in old Lua, used to run code outside the safe area when an object is cleared from memory.
+              It was also disabled in the executable.
+            </p>
+          </div>
+        </div>
+
+        <div class="patch">
+          <div class="brick">4</div>
+          <div>
+            <h4>Built-in browser disabled (<code>HtmlService</code>)</h4>
+            <p>
+              The 2007 client used the old Internet Explorer engine to open pages inside the game, which today is an open door for malware and browser exploits.
+              The service was blocked so that no map can open external links.
+            </p>
+          </div>
+        </div>
+
+        <h3 class="sec" id="maps">3. Cleanup and review of converted maps</h3>
+        <p class="sec-text">
+          Every map in the <a href="maps.html">Maps Archive</a> goes through our converter (<code>rbx_modern_to_2007.py</code>)
+          and is reviewed before it is published on this site.
+          Broken scripts, old server filters (<code>SecurityScript</code>) and suspicious commands are removed before publication.
+        </p>
+
+        <h3 class="sec" id="network">4. Closed network rule (<code>@Tester</code>)</h3>
+        <p class="sec-text">
+          007RTB does not open ports to the public internet and does not accept connections from strangers.
+          All matches happen exclusively inside the private Radmin VPN room, only between verified members with the <code>@Tester</code> role.
+          Want to play? <a href="https://discord.gg/HtrnZm9SAr">Apply for @Tester on Discord</a>.
+        </p>
+
+        <div class="notice" style="margin-top:18px">
+          <b>Important:</b> these protections apply to the patched client distributed by this project.
+          Do not run an unmodified <code>0.3.368.0</code> executable with maps from other sources.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer">
+    007RTB is an unofficial, non-commercial fan preservation project. It is not affiliated with, endorsed by, or sponsored by Roblox Corporation.<br>
+    <a href="index.html">Home</a> | <a href="maps.html">Maps Archive</a> | <a href="https://discord.gg/HtrnZm9SAr">Discord</a> | <a href="https://github.com/theobrdev/rbx_modern_to_2007">GitHub</a>
+  </div>
+
+</div>
+</body>
+</html>

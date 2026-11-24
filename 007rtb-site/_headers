@@ -1,0 +1,4 @@
+# Cloudflare Pages / Netlify: força download dos mapas
+/maps/*.rbxl
+  Content-Type: application/octet-stream
+  Content-Disposition: attachment

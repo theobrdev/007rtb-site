@@ -1,0 +1,160 @@
+/* 007RTB - estilo inspirado nos sites clássicos de 2007 */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #fff;
+  font-family: "Comic Neue", "Comic Sans MS", "Chalkboard SE", sans-serif;
+  color: #333;
+}
+#wrap { width: 900px; max-width: 100%; margin: 6px auto; }
+
+/* ---------- Topo ---------- */
+#header {
+  background: #1b2a4a;           /* azul-escuro */
+  border: 1px solid #333;
+  border-bottom: 0;
+  height: 74px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+}
+#header .logo img { height: 62px; display: block; }
+.btn-yellow {
+  display: inline-block;
+  background: #f5cd30;
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+  border: 2px solid #000;
+  border-radius: 8px;
+}
+.btn-top { font-size: 22px; padding: 8px 34px; }
+.btn-yellow:hover { background: #ffe066; }
+
+#nav {
+  background: #6E99C9;
+  border: 1px solid #333;
+  text-align: center;
+  padding: 8px 0;
+  font-size: 20px;
+}
+#nav a { color: #fff; text-decoration: none; font-weight: bold; padding: 0 6px; }
+#nav a:hover { text-decoration: underline; }
+#nav .sep { color: #223; }
+
+/* ---------- Layout ---------- */
+#main { display: flex; gap: 10px; margin-top: 10px; align-items: flex-start; }
+#left { width: 152px; flex-shrink: 0; }
+#center { flex: 1; }
+
+/* Caixa Project Status */
+.box-gray { background: #eee; border: 1px solid #000; }
+.box-gray h4 {
+  margin: 0; padding: 4px 6px;
+  background: #c8c8c8; border-bottom: 1px solid #000;
+  font-size: 12px; letter-spacing: 1px; font-family: Verdana, sans-serif;
+}
+.box-gray .inner { padding: 6px; font-size: 11px; font-family: Verdana, sans-serif; }
+.box-gray dt { font-weight: bold; margin-top: 6px; }
+.box-gray dd { margin: 0; }
+.btn-small {
+  display: block; margin: 10px auto 2px; text-align: center;
+  font: 11px Verdana, sans-serif; color: #000; text-decoration: none;
+  background: #fff; border: 1px solid #888; padding: 3px 2px;
+}
+.btn-small:hover { background: #f5cd30; }
+#left .char { display: block; margin: 40px auto 0; max-width: 100%; }
+
+/* ---------- Centro ---------- */
+#center .panel {
+  position: relative;
+  background: #eee; border: 1px solid #000;
+  padding: 16px 10px 80px 10px; min-height: 380px;
+}
+#center h1 { margin: 0; font-size: 28px; letter-spacing: 1px; }
+#center h2 { margin: 8px 0 14px; font-size: 17px; }
+.item { display: flex; gap: 8px; margin-bottom: 14px; max-width: 520px; }
+.brick {
+  width: 50px; height: 50px; flex-shrink: 0;
+  background: #3b6fa8; border: 2px solid #1d3f68; border-radius: 4px;
+  color: #fff; font-size: 32px; font-weight: bold;
+  display: flex; align-items: center; justify-content: center;
+  text-shadow: 1px 1px 0 #1d3f68;
+}
+.item h3 { margin: 0; font-size: 17px; }
+.item p { margin: 2px 0 0; font-size: 12px; color: #555; font-family: Verdana, sans-serif; }
+.item a { color: inherit; text-decoration: none; }
+.item a:hover h3 { text-decoration: underline; }
+code { background: #ddd; padding: 0 3px; }
+.btn-big {
+  position: absolute; right: 10px; bottom: 12px;
+  font-size: 30px; padding: 8px 22px;
+}
+.compat { position: absolute; left: 10px; bottom: 14px; font-size: 10px; color: #666; font-family: Verdana, sans-serif; }
+
+/* ---------- Faixa inferior ---------- */
+#featured { display: flex; margin-top: 10px; border: 1px solid #000; background: #fff; }
+#featured .label { width: 163px; flex-shrink: 0; background: #b5b5b5; padding: 10px; border-right: 1px solid #000; }
+#featured .label b { font-size: 18px; display: block; margin-bottom: 14px; }
+#featured .label span { font-size: 12px; }
+#featured .maps { flex: 1; display: flex; justify-content: space-around; align-items: flex-start; padding: 8px 4px; gap: 4px; }
+.map { width: 120px; text-align: center; font-size: 12px; font-family: Verdana, sans-serif; }
+.map a { color: #00e; text-decoration: none; }
+.map a:hover { text-decoration: underline; }
+.map img {
+  display: block; width: 110px; height: 70px; object-fit: cover;
+  margin: 0 auto 4px; border: 1px solid #888; background: #ccd;
+}
+
+/* ---------- Rodapé ---------- */
+#footer {
+  margin-top: 10px; border-top: 2px solid #666; padding: 8px 0;
+  text-align: center; font: 10px Verdana, sans-serif; line-height: 1.5;
+}
+#footer a { color: #00e; }
+
+/* ---------- Página de mapas ---------- */
+.maps-grid { display: flex; flex-wrap: wrap; gap: 14px; }
+.maps-grid .map { width: 150px; }
+.maps-grid .map img { width: 140px; height: 90px; }
+#center .panel.plain { padding-bottom: 16px; }
+
+@media (max-width: 760px) {
+  #main { flex-direction: column; }
+  #left { width: 100%; }
+  #featured, #featured .maps { flex-wrap: wrap; }
+  #featured .label { width: 100%; }
+  #nav { font-size: 15px; }
+  .btn-big { position: static; display: inline-block; margin-top: 12px; font-size: 22px; }
+  .compat { display: none; }
+}
+
+/* autor do mapa */
+.map .by { display: block; font-size: 10px; color: #666; margin-top: 2px; }
+
+/* aviso de mapas pré-instalados */
+.notice {
+  background: #fff8d6; border: 1px solid #b59a1a; padding: 8px 10px;
+  margin: 0 0 14px; font: 12px Verdana, sans-serif; color: #333;
+}
+
+/* mapas separados por ano */
+.year-nav { font: 12px Verdana, sans-serif; margin-bottom: 10px; }
+.year-nav a { color: #00e; }
+h3.year {
+  margin: 18px 0 8px; font-size: 22px;
+  border-bottom: 2px solid #6E99C9; padding-bottom: 2px;
+}
+h3.year small { font: 12px Verdana, sans-serif; color: #666; }
+.maps-grid .empty { margin: 0; font: italic 12px Verdana, sans-serif; color: #888; }
+
+/* página Security Patches */
+.sec-nav { font: 12px Verdana, sans-serif; margin-bottom: 6px; }
+.sec-nav a { color: #00e; }
+h3.sec { margin: 20px 0 6px; font-size: 20px; border-bottom: 2px solid #6E99C9; padding-bottom: 2px; }
+.sec-text { font: 13px/1.5 Verdana, sans-serif; margin: 0; max-width: 640px; }
+.sec-text a, .notice a { color: #00e; }
+.patch { display: flex; gap: 10px; margin: 12px 0; max-width: 640px; }
+.patch h4 { margin: 0 0 2px; font-size: 16px; }
+.patch p { margin: 0; font: 12px/1.5 Verdana, sans-serif; color: #444; }
