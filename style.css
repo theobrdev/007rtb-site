@@ -70,7 +70,7 @@ body {
 #center .panel {
   position: relative;
   background: #eee; border: 1px solid #000;
-  padding: 16px 10px 80px 10px; min-height: 380px;
+  padding: 16px 10px 160px 10px; min-height: 380px;
 }
 #center h1 { margin: 0; font-size: 28px; letter-spacing: 1px; }
 #center h2 { margin: 8px 0 14px; font-size: 17px; }
@@ -91,7 +91,7 @@ code { background: #ddd; padding: 0 3px; }
   position: absolute; right: 10px; bottom: 12px;
   font-size: 30px; padding: 8px 22px;
 }
-.compat { position: absolute; left: 10px; bottom: 14px; font-size: 10px; color: #666; font-family: Verdana, sans-serif; }
+.compat { position: absolute; left: 165px; bottom: 14px; font-size: 10px; color: #666; font-family: Verdana, sans-serif; }
 
 /* ---------- Faixa inferior ---------- */
 #featured { display: flex; margin-top: 10px; border: 1px solid #000; background: #fff; }
@@ -158,3 +158,8 @@ h3.sec { margin: 20px 0 6px; font-size: 20px; border-bottom: 2px solid #6E99C9; 
 .patch { display: flex; gap: 10px; margin: 12px 0; max-width: 640px; }
 .patch h4 { margin: 0 0 2px; font-size: 16px; }
 .patch p { margin: 0; font: 12px/1.5 Verdana, sans-serif; color: #444; }
+
+/* selo RCE Safe */
+.badge { position: absolute; left: 10px; bottom: 8px; display: inline-block; text-align: center; text-decoration: none; }
+.badge:hover svg polygon { fill: #dcdcff; }
+@media (max-width: 760px) { .badge { position: static; display: block; margin-top: 12px; } }
