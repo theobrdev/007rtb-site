@@ -163,3 +163,20 @@ h3.sec { margin: 20px 0 6px; font-size: 20px; border-bottom: 2px solid #6E99C9; 
 .badge { position: absolute; left: 10px; bottom: 8px; display: inline-block; text-align: center; text-decoration: none; }
 .badge:hover svg polygon { fill: #dcdcff; }
 @media (max-width: 760px) { .badge { position: static; display: block; margin-top: 12px; } }
+
+/* rodapé do painel: selo à esquerda, vídeo + botão à direita */
+.panel { padding-bottom: 16px; min-height: 0; }
+.panel-bottom { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; margin-top: 10px; }
+.panel-bottom .badge { position: static; display: block; }
+.panel-bottom .compat { position: static; display: block; margin-top: 4px; }
+.pb-right { display: flex; flex-direction: column; gap: 10px; width: 340px; max-width: 100%; }
+.pb-right video { display: block; width: 100%; background: #000; border: 2px solid #000; }
+.pb-right .btn-big { position: static; display: block; text-align: center; }
+@media (max-width: 760px) {
+  .panel-bottom { flex-direction: column; align-items: stretch; }
+  .pb-right { width: 100%; }
+  .panel-bottom .compat { display: none; }
+}
+
+/* proporção do vídeo (400x326) para não pular o layout antes de carregar */
+.pb-right video { aspect-ratio: 400 / 326; max-width: 400px; }
